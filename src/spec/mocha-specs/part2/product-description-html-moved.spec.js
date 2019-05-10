@@ -22,13 +22,13 @@ describe("ProductDescription", () => {
     // parse html to test for description div inside ProductDescription Component
     let description;
     const productDescriptionNodes = helpers.parseFile(productDescriptionFile);
-    productDescriptionNodes[0].attrs.find(
+    productDescriptionNodes[1].attrs.find(
       attr => (description = attr.value.match(/description/))
     );
 
     let element;
     try {
-      element = productDescriptionNodes[0].tagName;
+      element = productDescriptionNodes[1].tagName;
     } catch (e) {
       assert(
         "The ProductDescriptionComponent's HTML file doesn't contain a `div` tag with a class of `description`."

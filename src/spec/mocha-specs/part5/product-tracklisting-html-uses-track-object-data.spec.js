@@ -11,10 +11,10 @@ describe("ProductTracklisting", () => {
       "src/app/product-tracklisting/product-tracklisting.component.html"
     );
     const productTracklistingNodes = helpers.parseFile(productTracklistingFile);
-    productTracklistingNodes[0].attrs.find(
+    productTracklistingNodes[1].attrs.find(
       attr => (tracklisting = attr.value.match(/tracklisting/))
     );
-    const productListing = parse5.serialize(productTracklistingNodes[0]);
+    const productListing = parse5.serialize(productTracklistingNodes[1]);
     let $ = cheerio.load(productListing);
     const li = $("li");
     const trackNumber = $(".track-number");
@@ -28,7 +28,7 @@ describe("ProductTracklisting", () => {
     );
 
     try {
-      element = productTracklistingNodes[0].tagName;
+      element = productTracklistingNodes[1].tagName;
     } catch (e) {
       assert(
         "The ProductTracklistingComponent's HTML file doesn't contain a `div` tag with a class of `tracklisting`."

@@ -69,13 +69,13 @@ describe("ProductTracklisting", () => {
     // parse html to test for tracklisting div inside Producttracklisting Component
     let tracklisting;
     const productTracklistingNodes = helpers.parseFile(productTracklistingFile);
-    productTracklistingNodes[0].attrs.find(
+    productTracklistingNodes[1].attrs.find(
       attr => (tracklisting = attr.value.match(/tracklisting/))
     );
 
     let element;
     try {
-      element = productTracklistingNodes[0].tagName;
+      element = productTracklistingNodes[1].tagName;
     } catch (e) {
       assert(
         "The ProductTracklistingComponent's HTML file doesn't contain a `div` tag with a class of `tracklisting`."
